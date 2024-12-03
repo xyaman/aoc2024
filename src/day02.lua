@@ -18,7 +18,7 @@ local part1 = function()
         local valid = true
 
         for i, n in ipairs(table.level_from_line(line)) do
-            local diff = prev - n
+            local diff = math.abs(prev - n)
 
             if i == 2 then
                 is_increasing = prev < n
@@ -26,7 +26,7 @@ local part1 = function()
                 valid = false; break
             end
 
-            if i > 1 and (math.abs(diff) > 3 or (diff) == 0) then
+            if i > 1 and (diff > 3 or diff == 0) then
                 valid = false; break
             end
 
@@ -53,7 +53,7 @@ local part2 = function()
             local valid = true
 
             for j, n in ipairs(level) do
-                local diff = prev - n
+                local diff = math.abs(prev - n)
 
                 if j == 2 then
                     is_increasing = prev < n
@@ -61,7 +61,7 @@ local part2 = function()
                     valid = false; break
                 end
 
-                if j > 1 and (math.abs(diff) > 3 or (diff) == 0) then
+                if j > 1 and (diff > 3 or diff == 0) then
                     valid = false; break
                 end
 
